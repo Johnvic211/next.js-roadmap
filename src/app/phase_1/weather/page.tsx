@@ -12,6 +12,7 @@ import {
 import { useState, useEffect } from "react";
 import axios from "axios"
 import { useDebounce } from 'use-debounce';
+import { useCallback } from 'react';
 
 const Weather = () => {
   interface WeatherData {
@@ -26,27 +27,34 @@ const Weather = () => {
   const [error, setError] = useState<string>("")
   const [debouncedCity] = useDebounce(city, 1000);
 
-  const fetchWeather = async () => {
+  const fetchWeather = useCallback(async () => {
+    const apiKey = process.env.NEXT_PUBLIC_OPENWEATHER_API_KEY;
+  
+    if (!apiKey) {
+      setError("API key is missing. Please configure it in the environment variables.");
+      setWeather(null);
+      return;
+    }
+  
     try {
-      setLoading(true)
-      setError("")
-      const apiKey = process.env.NEXT_PUBLIC_OPENWEATHER_API_KEY
+      setLoading(true);
+      setError("");
       const response = await axios.get(
         `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`
-      )
-      setWeather(response.data)
+      );
+      setWeather(response.data);
     } catch (err: unknown) {
-      console.log(err)
-      setError("City not found or something went wrong.")
-      setWeather(null)
+      console.log(err);
+      setError("City not found or something went wrong.");
+      setWeather(null);
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
-  }
-
+  }, [city]);
+  
   useEffect(() => {
     if (debouncedCity.trim()) fetchWeather();
-  }, [debouncedCity]);
+  }, [debouncedCity, fetchWeather]);
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(

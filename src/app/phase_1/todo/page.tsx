@@ -7,7 +7,7 @@ import { toast } from "sonner"
 import { v4 as uuidv4 } from "uuid";
 import { EditTask } from "./components/EditTaskDialog"
 import { DeleteTask } from "./components/DeleteTaskAlert"
-import TopicCovered from "./../../TopicCovered"
+import TopicCovered from "@/components/TopicCovered"
 import React, { useState, useEffect } from "react";
 
 const ToDo = () => {

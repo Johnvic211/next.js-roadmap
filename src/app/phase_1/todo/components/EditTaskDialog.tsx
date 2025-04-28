@@ -1,4 +1,4 @@
-'use client'
+"use client"
 
 import { Button } from "@/components/ui/button"
 import {
@@ -13,7 +13,7 @@ import {
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { useState } from "react";
-import { Pencil } from 'lucide-react'
+import { Pencil } from "lucide-react"
 
 type EditTaskFormProps = {
   taskName: string;
@@ -45,7 +45,7 @@ export function EditTask({ taskName, onSave }: EditTaskFormProps) {
         <DialogHeader>
           <DialogTitle>Edit task</DialogTitle>
           <DialogDescription>
-            Make changes to your task here. Click save when you're done.
+            Make changes to your task here. Click save when you&apos;re done.
           </DialogDescription>
         </DialogHeader>
         <div className="grid gap-4 py-4">
