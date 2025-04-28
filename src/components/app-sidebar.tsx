@@ -1,7 +1,6 @@
 import * as React from "react"
 import {
   GalleryVerticalEnd,
-  SquareTerminal,
 } from "lucide-react"
 
 import { NavMain } from "@/components/nav-main"
