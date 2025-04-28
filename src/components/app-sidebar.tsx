@@ -1,6 +1,7 @@
 import * as React from "react"
 import {
   GalleryVerticalEnd,
+  SquareTerminal,
 } from "lucide-react"
 
 import { NavMain } from "@/components/nav-main"
@@ -29,6 +30,7 @@ const data = {
       title: "Phase 1 Applications",
       url: "#",
       isActive: true,
+      icon: "SquareTerminal",
       items: [
         {
           title: "Todo",
