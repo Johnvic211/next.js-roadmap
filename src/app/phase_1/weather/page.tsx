@@ -1,3 +1,5 @@
+"use client"
+
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { Label } from "@/components/ui/label"
@@ -28,7 +30,7 @@ const Weather = () => {
     try {
       setLoading(true)
       setError("")
-      const apiKey = import.meta.env.VITE_OPENWEATHER_API_KEY
+      const apiKey = process.env.NEXT_PUBLIC_OPENWEATHER_API_KEY
       const response = await axios.get(
         `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`
       )
@@ -50,7 +52,7 @@ const Weather = () => {
     navigator.geolocation.getCurrentPosition(
       async (position) => {
         const { latitude, longitude } = position.coords;
-        const apiKey = import.meta.env.VITE_OPENWEATHER_API_KEY;
+        const apiKey = process.env.NEXT_PUBLIC_OPENWEATHER_API_KEY;
         const response = await axios.get(
           `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`
         );

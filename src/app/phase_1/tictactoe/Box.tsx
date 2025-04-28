@@ -1,6 +1,6 @@
 type BoxData = {
   value: string,
-  onBoxClick: unknown
+  onBoxClick: () => void
 }
 const Box = ({value, onBoxClick}: BoxData) => {
   return (

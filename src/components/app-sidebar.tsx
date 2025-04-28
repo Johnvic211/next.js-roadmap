@@ -44,7 +44,7 @@ const data = {
         },
         {
           title: "User Form",
-          url: "/phase_1/user-form",
+          url: "/phase_1/userform",
         },
       ],
     },
