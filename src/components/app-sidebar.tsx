@@ -49,6 +49,18 @@ const data = {
         },
       ],
     },
+    {
+      title: "Phase 2 Applications",
+      url: "#",
+      isActive: true,
+      icon: "SquareTerminal",
+      items: [
+        {
+          title: "Blog",
+          url: "/phase_2/blog",
+        },
+      ],
+    },
   ],
 }
 
